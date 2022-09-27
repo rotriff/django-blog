@@ -1,9 +1,36 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
 My Blog
 {% endblock  %}
 
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/includes/post.css" %}" >
+    <link rel="stylesheet" href="{% static "blog/index.css" %}" >
+{% endblock css_files %}
+
 {% block  content %}
-    <h1>Welcome to my blog</h1>
+
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/profile_pic.jpeg" %}" alt="Shellygun - The Author OF This Blog"/>
+            <h2>SHELLYGUN'S BLOG</h2>
+        </header>
+        <p>Hi, I am Shellygun!</p>
+    </section>
+
+    <section id ="latest-posts">
+        <h2>My Latest Toughts</h2>
+
+        <ul>
+            {% include "blog/includes/post.html" %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>Nothing</p>
+        <p>I have no goals</p>
+    </section>
 {% endblock  %}
